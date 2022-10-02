@@ -1,0 +1,24 @@
+spring:
+  rabbitmq:
+    host: 127.0.0.1
+    port: 30006
+    username: admin
+    password: admin
+    virtual-host: /
+  kafka:
+    bpm:
+      bootstrap-servers: SASL_PLAINTEXT://10.172.16.27:1024,10.172.16.28:1024,10.172.16.29:1024
+      producer:
+        retries: 1     #发送失败后的重复发送次数
+        batch-size: 2 #一次最多发送数据量
+        buffer-memory: 33554432 #32M批处理缓冲区
+        linger: 1000
+        acks: all
+        username: aaaaa
+        passwd: bbbbb
+
+app:
+  id: 12345
+apollo:
+  cluster: default
+  meta: http://localhost:8080
